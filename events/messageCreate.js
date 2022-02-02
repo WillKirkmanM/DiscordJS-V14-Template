@@ -1,5 +1,5 @@
-const { MessageEmbed } = require("discord.js");
-const { prefix } = require("../utils/config.json");
+const { MessageEmbed } = require('discord.js');
+const { prefix } = require('../Configs/config');
 
 module.exports = {
   event: "messageCreate",

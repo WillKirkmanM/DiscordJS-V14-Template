@@ -16,7 +16,7 @@ module.exports = async (err, files, client) => {
 
   (async () => {
     try {
-      console.log("Refreshing slash command list");
+      console.log('Refreshing Slash Command List!');
       const guildIds = await client.guilds.cache.map((guild) => guild.id);
       const clientId = await client.user.id;
       guildIds.forEach(async (guildId) => {
@@ -25,7 +25,7 @@ module.exports = async (err, files, client) => {
         });
       });
 
-      console.log("Successfully refreshed slash command list");
+      console.log('Successfully Refreshed Slash Command List!');
     } catch (error) {
       console.error(error);
     }

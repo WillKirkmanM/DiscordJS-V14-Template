@@ -1,6 +1,6 @@
 module.exports = {
 	name: 'test',
-	description: 'Just a test command',
+	description: 'A Simple Test Command',
 	aliases: [],
 	usage: '',
 	guildOnly: false,
@@ -10,6 +10,6 @@ module.exports = {
 		user: [],
 	},
 	execute: (message, args, client) => {
-		message.reply('this is the test command');
+		message.reply('A Simple Test Command, To edit this text, go into Commands/test.js');
 	},
 };
