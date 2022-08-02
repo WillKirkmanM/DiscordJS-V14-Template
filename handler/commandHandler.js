@@ -1,5 +1,5 @@
 const ascii = require("ascii-table");
-const commandCheck = require(' ./../utils/commandCheck');
+const commandCheck = require('./../utils/commandCheck');
 const table = new ascii().setHeading('Command', 'Load Status');
 
 module.exports = async (err, files, client) => {
