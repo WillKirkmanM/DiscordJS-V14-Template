@@ -1,55 +1,59 @@
+# Discord V-14 Template 
 
-# DiscordJS V13 Template 
-[![MIT License](https://img.shields.io/apm/l/atomic-design-ui.svg?)](https://github.com/tterb/atomic-design-ui/blob/master/LICENSEs)
-## Run Locally
+A Discord V14 Template with Slash-Commands, Legacy Commands, Sub-Folders & More!
+## Installation
 
-Clone the project
-
-```bash
-  git clone https://github.com/WillKirkmanM/DiscordJS-V13-Template
-```
-
-Go to the project directory
+Clone with Github
 
 ```bash
-  cd DiscordJS-V13-Template
+  git clone https://github.com/WillKirkmanM/DiscordJS-V14-Template.git
+  cd DiscordJS-V14-Template
 ```
-
-Install dependencies
+    
+Clone with [Git-Cli](https://cli.github.com/)
 
 ```bash
-  npm install
+    gh repo clone WillKirkmanM/DiscordJS-V14-Template
+    cd DiscordJS-V14-Template
 ```
 
-Start the Bot
+Use This Template
+![Use This Template Button](https://camo.githubusercontent.com/523d7e81c3d3dcd01b711f14c87e850edeb8e62bf72814d3231ab084a0c70d31/68747470733a2f2f7777772e726f737472756d2e626c6f672f706f73742f323031392d30362d31312d612d7265706f2d74656d706c6174652d666f722d722d616e616c797369735f66696c65732f7573652d746869732e706e67)
 
+Install Dependencies
 ```bash
-  node index.js
+    npm install
 ```
 
+**Rename .env.example to .env and put your token following:**
+```bash
+    TOKEN=YOUR_TOKEN
+``` 
 
-## FAQ
+Run the Bot
+```bash
+    npm run start
+```
+## Get in Contact
 
-#### How can I Contact You?
-
-You can contact me by sending me a message on either Discord (WIll#7226) or Twitter ([@WillKirkmanM](https://twitter.com/WillKirkmanM))
-
-#### How can I add my Token to the Bot?
-
-Go into the '.env' file and add your bot token into the `TOKEN` field.  
-(This is one of the most secure ways to store your token so do not worry about that)
+You can contact me by sending me a message on Discord (**WIll#7226**) 
 
 
-## Environment Variables
+## Features
 
-To run this project, you will need to add the following environment variables to your .env file if the .env file has not already been created for you.
+- Concise & Readable Code
+- Slash-Commands Handler with Sub-Folders
+- Legacy Command Handler with Sub-Folders
+- Event Handler with Sub-Folders 
+- Fully Extensible
+- Easy to Edit **config.js** file
+## License
 
-`TOKEN`
+[MIT](https://choosealicense.com/licenses/mit/)
 
-## Changelog
-To view the changelog, head to the [CHANGELOG.md](https://github.com/WillKirkmanM/DiscordJS-V13-Template/blob/main/CHANGELOG.md)
 
 ## Authors
 
 - [@WillKirkmanM](https://www.github.com/WillKirkmanM)
+
 

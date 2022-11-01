@@ -1,11 +1,13 @@
-const { MessageEmbed } = require('discord.js');
-const { prefix } = require('../Configs/config');
+const { prefix } = require("../../Configs/config.js");
+const { stdout } = require("node:process");
 
 module.exports = {
   event: "messageCreate",
   execute: async (message, client) => {
-    if (!message.content.startsWith(prefix) || message.author.bot) return;
-    const args = message.content.slice(prefix.length).split(/ +/);
+    if (message.content.startsWith(prefix) === false) return;
+    if (message.author.bot === true) return;
+
+    const args = message.content.slice(prefix.length).trim().split(/ +/);
     const commandName = args.shift().toLowerCase();
     const command =
       client.commands.get(commandName) ||
@@ -26,11 +28,10 @@ module.exports = {
       }
       return message.channel.send(reply);
     }
-
     try {
       command.execute(message, args, client);
     } catch (error) {
-      console.error(error);
+      stdout.write(`${error}\n`);
       message.reply("There was an error trying to execute that command!");
     }
   },

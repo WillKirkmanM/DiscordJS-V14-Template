@@ -1,19 +1,18 @@
 {
-  "name": "discordjs-v13-template",
+  "name": "discordjs-v14-template",
   "version": "1.0.0",
   "description": "A DiscordJS Template with Slash Command Support, Legacy Commands and More.",
+  "type": "commonjs",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node index.js"
   },
   "author": "",
-  "license": "ISC",
+  "license": "MIT",
   "dependencies": {
-    "@discordjs/builders": "^0.12.0",
-    "@discordjs/rest": "^0.3.0",
-    "ascii-table": "^0.0.9",
-    "discord-api-types": "^0.26.1",
-    "discord.js": "^13.6.0",
-    "dotenv": "^14.3.2"
+    "discord-api-types": "^0.37.15",
+    "discord.js": "^14.6.0",
+    "dotenv": "^14.3.2",
+    "glob": "^8.0.3"
   }
 }

@@ -1,5 +1,4 @@
-const { MessageEmbed } = require('discord.js');
-const { prefix } = require('../Configs/config');
+const { stdout } = require("node:process");
 
 module.exports = {
   event: "interactionCreate",
@@ -13,7 +12,7 @@ module.exports = {
     try {
       await command.execute(interaction, client);
     } catch (error) {
-      console.error(error);
+      stdout.write(`${error}\n`);
       await interaction.reply({
         content: "There was an error while executing this command!",
         ephemeral: true,
@@ -21,3 +20,4 @@ module.exports = {
     }
   },
 };
+

@@ -1,20 +1,20 @@
 #!/usr/bin/env node
 
-// fs Library built into nodeJS for Command & Event Handling
-const fs = require("fs");
+require("dotenv").config();
+const { env } = require("node:process");
 
-// path Library build into NodeJS required for DotEnv 
-const path = require('path')
+const { Client, GatewayIntentBits, Partials, Collection } = require("discord.js");
 
-// Requiring dotenv to Keep Token Private
-require('dotenv').config({ path: path.resolve(__dirname, './.env') })
-
-// Importing Discord Library
-const { Client, Intents, Collection } = require("discord.js");
-
-// Setting Intents for Client (to add an Intent copy this 'Intents.FLAGS.<Intent>')
+// Setting Intents for Client to add an Intent copy this 'GatewayIntentBits.<Intent> (Your IDE Should auto-complete the intents.)'
 const client = new Client({
-  intents: [Intents.FLAGS.GUILDS, Intents.FLAGS.GUILD_MESSAGES],
+  intents: [
+    GatewayIntentBits.Guilds,
+    GatewayIntentBits.GuildMessages,
+    GatewayIntentBits.MessageContent,
+  ],
+  partials: [
+    Partials.Channel
+  ]
 });
 
 // Setting a Global Collection for Commands, Aliases & Interactions
@@ -23,16 +23,13 @@ client.aliases = new Collection();
 client.interactions = new Collection();
 
 // Command Handler
-fs.readdir("./commands/", async (err, files) => {
-  const commandHandler = require("./handler/commandHandler");
-  await commandHandler(err, files, client);
-});
+const commandHandler = require("./Utilities/commandHandler.js");
+commandHandler(client);
 
 // Event Handler
-fs.readdir("./events/", (err, files) => {
-  const eventHandler = require("./handler/eventHandler");
-  eventHandler(err, files, client);
-});
+const eventHandler = require("./Utilities/eventHandler.js");
+eventHandler(client);
+
 
 // Logging in to the TOKEN in .env
-client.login(process.env.TOKEN);
+client.login(env.TOKEN);
