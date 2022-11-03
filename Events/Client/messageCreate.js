@@ -1,8 +1,13 @@
+const { Client, Message } = require("discord.js");
 const { prefix } = require("../../Configs/config.js");
 const { stdout } = require("node:process");
 
 module.exports = {
   event: "messageCreate",
+  /**
+    * @param {Client} client
+    * @param {Message} message
+    */
   execute: async (message, client) => {
     if (message.content.startsWith(prefix) === false) return;
     if (message.author.bot === true) return;

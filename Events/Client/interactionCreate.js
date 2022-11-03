@@ -1,7 +1,12 @@
+const { Client, CommandInteraction } = require("discord.js");
 const { stdout } = require("node:process");
 
 module.exports = {
   event: "interactionCreate",
+  /**
+    * @param {Client} client
+    * @param {CommandInteraction} interaction
+    */
   execute: async (interaction, client) => {
     if (!interaction.isCommand()) return;
 

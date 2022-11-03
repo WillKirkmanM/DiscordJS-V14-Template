@@ -14,6 +14,7 @@ module.exports = async (client, err) => {
     if (eventFunction.disabled) return;
 
     const event = eventFunction.event || file.split(".")[0];
+    console.log(file.split("."[0]))
     const emitter =
       (typeof eventFunction.emitter === "string"
         ? client[eventFunction.emitter]
