@@ -3,7 +3,7 @@ const { Message } = require("discord.js");
 module.exports = {
   name: "test",
   description: "A Simple Test Command",
-  aliases: [],
+  aliases: [""],
   usage: "",
   guildOnly: false,
   args: false,
