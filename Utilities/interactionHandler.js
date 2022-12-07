@@ -1,12 +1,11 @@
 const { REST, Routes } = require("discord.js");
 const { glob } = require("glob");
 const { promisify } = require("node:util");
-const { stdout, env, cwd } = require("node:process");
 const proGlob = promisify(glob);
 
 module.exports = async (client) => {
   try {
-    const Files = await proGlob(`${cwd().replace(/\\/g, "/")}/Interactions/**/*.js`);
+    const Files = await proGlob(`${process.cwd().replace(/\\/g, "/")}/Interactions/**/*.js`);
 
     for (let i = 0; i < Files.length; i++) {
       delete require.cache[require.resolve(Files[i])];
@@ -17,11 +16,11 @@ module.exports = async (client) => {
       client.interactionsArray.push(interaction.data.toJSON());
     }
 
-    const rest = new REST({ version: "10" }).setToken(env.TOKEN);
+    const rest = new REST({ version: "10" }).setToken(process.env.TOKEN);
 
     (async () => {
       try {
-        stdout.write("Refreshing Slash Command List!\n");
+        process.stdout.write("Refreshing Slash Command List!\n");
         const guildIds = await client.guilds.cache.map((guild) => guild.id);
         const clientId = await client.user.id;
         guildIds.forEach(async (guildId) => {
@@ -30,9 +29,9 @@ module.exports = async (client) => {
           });
         });
 
-        stdout.write("Successfully Refreshed Slash Command List!\n");
+        process.stdout.write("Successfully Refreshed Slash Command List!\n");
       } catch (error) {
-        stdout.write(`${error}\n`);
+        process.stdout.write(`${error}\n`);
       }
     })();
   } catch (err) {

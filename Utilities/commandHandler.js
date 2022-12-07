@@ -1,11 +1,10 @@
 const { glob } = require("glob");
 const { promisify } = require("node:util");
-const { stdout, cwd } = require("node:process");
 const proGlob = promisify(glob);
 
 module.exports = async (client) => {
   try {
-    const Files = await proGlob(`${cwd().replace(/\\/g, "/")}/Commands/**/*.js`);
+    const Files = await proGlob(`${process.cwd().replace(/\\/g, "/")}/Commands/**/*.js`);
 
     for (let i = 0; i < Files.length; i++) {
       delete require.cache[require.resolve(Files[i])];
@@ -20,6 +19,6 @@ module.exports = async (client) => {
     };
   }
   catch (err) {
-    stdout.write(`${err}\n`);
+    process.stdout.write(`${err}\n`);
   };
 };
