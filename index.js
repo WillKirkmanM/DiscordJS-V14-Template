@@ -23,12 +23,10 @@ client.aliases = new Collection();
 client.interactions = new Collection();
 
 // Command Handler
-const commandHandler = require("./Utilities/commandHandler.js")
-commandHandler(client)
+require("./Utilities/commandHandler.js")(client)
 
 // Event Handler
-const eventHandler = require("./Utilities/eventHandler.js");
-eventHandler(client)
+require("./Utilities/eventHandler")(client)
 
 // Logging in to the TOKEN in .env
 client.login(env.TOKEN)
