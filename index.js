@@ -1,7 +1,5 @@
 #!/usr/bin/env node
-
 require("dotenv").config();
-const { env } = require("node:process");
 
 const { Client, GatewayIntentBits, Partials, Collection } = require("discord.js");
 
@@ -29,4 +27,4 @@ require("./Utilities/commandHandler.js")(client)
 require("./Utilities/eventHandler")(client)
 
 // Logging in to the TOKEN in .env
-client.login(env.TOKEN)
+client.login(process.env.TOKEN)
