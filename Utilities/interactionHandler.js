@@ -30,7 +30,7 @@ module.exports = async (client) => {
           });
         });
 
-        stdout.write("Successfully Refreshed Slash Command List!");
+        stdout.write("Successfully Refreshed Slash Command List!\n");
       } catch (error) {
         stdout.write(`${error}\n`);
       }

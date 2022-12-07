@@ -9,6 +9,7 @@ module.exports = {
     * @param {Message} message
     */
   execute: async (message, client) => {
+    if (message.content === `<@${client.user.id}>`) { message.reply(`The Prefix is: ${prefix}`) }
     if (message.content.startsWith(prefix) === false) return;
     if (message.author.bot === true) return;
 
