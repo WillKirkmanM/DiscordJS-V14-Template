@@ -1,6 +1,5 @@
 const { Client, Message } = require("discord.js");
 const { prefix } = require("../../Configs/config.js");
-const { stdout } = require("node:process");
 
 module.exports = {
   event: "messageCreate",
@@ -37,7 +36,7 @@ module.exports = {
     try {
       command.execute(message, args, client);
     } catch (error) {
-      stdout.write(`${error}\n`);
+      process.stdout.write(`${error}\n`);
       message.reply("There was an error trying to execute that command!");
     }
   },
