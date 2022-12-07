@@ -1,5 +1,5 @@
 const { glob } = require("glob");
-// const { promisify } = require("node:util");
+const { promisify } = require("node:util");
 const proGlob = promisify(glob);
 
 module.exports = async (client) => {
