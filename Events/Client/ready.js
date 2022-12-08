@@ -1,6 +1,7 @@
-const { Client } = require("discord.js");
+import { Client } from "discord.js";
+import interactionHandler from "../../Utilities/interactionHandler.js";
 
-module.exports = {
+export default {
   event: "ready",
   once: true,
   /**
@@ -10,7 +11,7 @@ module.exports = {
     console.log(`Bot is Ready, Logged in as: ${client.user.tag}`);
 
     // Start the Interaction Handler after Bot is Ready to have Access to all Guild ID's
-    require("../../Utilities/interactionHandler.js")(client);
+    interactionHandler(client)
   },
 };
 

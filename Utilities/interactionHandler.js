@@ -1,17 +1,18 @@
-const { REST, Routes } = require("discord.js");
-const { glob } = require("glob");
-const { promisify } = require("node:util");
+import { REST, Routes } from "discord.js";
+import pkg from "glob";
+const { glob } = pkg
+import { promisify } from "node:util";
 const proGlob = promisify(glob);
 
-module.exports = async (client) => {
+export default async function interactionHandler(client) {
   try {
     const Files = await proGlob(`${process.cwd().replace(/\\/g, "/")}/Interactions/**/*.js`);
 
     for (let i = 0; i < Files.length; i++) {
-      delete require.cache[require.resolve(Files[i])];
-
       client.interactionsArray = [];
-      const interaction = require(Files[i]);
+      const interactionFile = await import(Files[i]);
+      const interaction = interactionFile.default
+
       client.interactions.set(interaction.data.name, interaction);
       client.interactionsArray.push(interaction.data.toJSON());
     }
@@ -30,11 +31,11 @@ module.exports = async (client) => {
         });
 
         process.stdout.write("Successfully Refreshed Slash Command List!\n");
-      } catch (error) {
-        process.stdout.write(`${error}\n`);
+      } catch (err) {
+        process.stdout.write(`InteractionHandler: ${err}\n`);
       }
     })();
   } catch (err) {
-    stdout.write(`${err}\n`)
+    process.stdout.write(`InteractionHandler: ${err}\n`)
   }
 }

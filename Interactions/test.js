@@ -1,6 +1,6 @@
-const { SlashCommandBuilder, CommandInteraction } = require("discord.js");
+import { SlashCommandBuilder, CommandInteraction } from "discord.js";
 
-module.exports = {
+export default {
   data: new SlashCommandBuilder()
     .setName("test")
     .setDescription("A Simple Interaction Command"),

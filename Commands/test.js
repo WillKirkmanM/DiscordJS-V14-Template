@@ -1,6 +1,6 @@
-const { Message } = require("discord.js");
+import { Message } from "discord.js";
 
-module.exports = {
+export default {
   name: "test",
   description: "A Simple Test Command",
   aliases: [""],

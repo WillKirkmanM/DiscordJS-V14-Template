@@ -1,3 +1,6 @@
 # Edit this file if you know what you are doing!
 node_modules
 .env
+
+# Remove the line below if you would like the database to stay in the git repository (Not Recommended)
+pb_data

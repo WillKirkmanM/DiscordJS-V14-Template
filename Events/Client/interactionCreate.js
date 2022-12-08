@@ -1,6 +1,6 @@
-const { Client, CommandInteraction } = require("discord.js");
+import { Client, CommandInteraction } from "discord.js";
 
-module.exports = {
+export default {
   event: "interactionCreate",
   /**
     * @param {Client} client

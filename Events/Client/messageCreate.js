@@ -1,7 +1,8 @@
-const { Client, Message } = require("discord.js");
-const { prefix } = require("../../Configs/config.js");
+import { Client, Message } from "discord.js";
+import config from "../../Configs/config.js";
+const prefix = config.prefix;
 
-module.exports = {
+export default {
   event: "messageCreate",
   /**
     * @param {Client} client
@@ -35,8 +36,8 @@ module.exports = {
     }
     try {
       command.execute(message, args, client);
-    } catch (error) {
-      process.stdout.write(`${error}\n`);
+    } catch (err) {
+      process.stdout.write(`MessageCreate: ${err}\n`);
       message.reply("There was an error trying to execute that command!");
     }
   },

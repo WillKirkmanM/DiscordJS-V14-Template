@@ -1,15 +1,16 @@
-const { glob } = require("glob");
-const { promisify } = require("node:util");
+import pkg from "glob";
+const { glob } = pkg;
+import { promisify } from "node:util";
 const proGlob = promisify(glob);
 
-module.exports = async (client) => {
+export default async function eventHandler(client) {
   try {
     const Files = await proGlob(`${process.cwd().replace(/\\/g, "/")}/Events/**/*.js`);
 
     for (let i = 0; i < Files.length; i++) {
-      delete require.cache[require.resolve(Files[i])];
+      const eventFile = await import(Files[i]);
+      const eventFunction = eventFile.default
 
-      const eventFunction = require(Files[i]);
       if (eventFunction.disabled) return;
 
       const event = eventFunction.event || Files[i].split(".")[0];
@@ -24,10 +25,11 @@ module.exports = async (client) => {
           eventFunction.execute(...args, client)
         );
       } catch (error) {
-        process.stdout.write(`${error.stack}\n`);
+        process.stdout.write(`EventHandler: ${error.stack}\n`);
       }
     }
   } catch (err) {
-    process.stdout.write(`${err}\n`)
+    process.stdout.write(`EventHandler: ${err}\n`)
   }
 }
+
