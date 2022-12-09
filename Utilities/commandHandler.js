@@ -21,8 +21,9 @@ export default async function(client) {
         };
       };
     };
+    process.stdout.write(`[${chalk.blue("INFO")}] - Commands Loaded!\n`)
   }
   catch (err) {
-    process.stdout.write(`${chalk.red("CommandHandler")}: ${err}\n`);
+    process.stdout.write(`[${chalk.red("CommandHandler")}] - ${err}\n`);
   };
 };

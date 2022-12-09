@@ -26,11 +26,12 @@ export default async function eventHandler(client) {
           eventFunction.execute(...args, client)
         );
       } catch (error) {
-        process.stdout.write(`${chalk.red("EventHandler")}: ${error.stack}\n`);
+        process.stdout.write(`[${chalk.red("EventHandler")}] - ${error.stack}\n`);
       }
     }
+    process.stdout.write(`[${chalk.blue("INFO")}] - Events Loaded!\n`)
   } catch (err) {
-    process.stdout.write(`${chalk.red("EventHandler")}: ${err}\n`)
+    process.stdout.write(`[${chalk.red("EventHandler")}] - ${err}\n`)
   }
 }
 

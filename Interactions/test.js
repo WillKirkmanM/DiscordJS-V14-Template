@@ -1,4 +1,4 @@
-import { SlashCommandBuilder, CommandInteraction } from "discord.js";
+import { SlashCommandBuilder, CommandInteraction, ActionRowBuilder, ButtonBuilder, ButtonStyle } from "discord.js";
 
 export default {
   data: new SlashCommandBuilder()
@@ -8,7 +8,15 @@ export default {
   * @param {CommandInteraction} interaction 
   */
   async execute(interaction) {
-    await interaction.reply("A Simple Test Slash Command, To edit this text, go into Interactions/test.js");
+    const row = new ActionRowBuilder()
+      .addComponents(
+        new ButtonBuilder()
+          .setCustomId('Test')
+          .setLabel('Click me!')
+          .setStyle(ButtonStyle.Primary),
+      );
+
+    await interaction.reply({ content: 'The Default Test Interaction!', components: [row] });
   },
 };
 

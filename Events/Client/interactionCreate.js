@@ -1,4 +1,5 @@
 import { Client, CommandInteraction } from "discord.js";
+import chalk from "chalk";
 
 export default {
   event: "interactionCreate",
@@ -7,20 +8,33 @@ export default {
     * @param {CommandInteraction} interaction
     */
   execute: async (interaction, client) => {
-    if (!interaction.isCommand()) return;
+    if (interaction.isButton()) {
+      const button = client.buttons.get(interaction.customId)
+      if (!button) return
 
-    const command = client.interactions.get(interaction.commandName);
+      try {
+        await button.execute(interaction)
+      } catch (err) {
+        process.stdout.write(`[${chalk.red("ButtonHandler")}] - ${err}`)
+        await interaction.reply({ content: 'There was an error while executing that button.', ephemeral: true })
+      }
+    }
 
-    if (!command) return;
+    if (interaction.isCommand()) {
 
-    try {
-      await command.execute(interaction, client);
-    } catch (error) {
-      process.stdout.write(`${error}\n`);
-      await interaction.reply({
-        content: "There was an error while executing this command!",
-        ephemeral: true,
-      });
+      const command = client.interactions.get(interaction.commandName);
+
+      if (!command) return;
+
+      try {
+        await command.execute(interaction, client);
+      } catch (error) {
+        process.stdout.write(`${error}\n`);
+        await interaction.reply({
+          content: "There was an error while executing this command!",
+          ephemeral: true,
+        });
+      }
     }
   },
 };

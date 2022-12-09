@@ -19,6 +19,7 @@ export const client = new Client({
 client.commands = new Collection();
 client.aliases = new Collection();
 client.interactions = new Collection();
+client.buttons = new Collection();
 
 // Command Handler
 import commandHandler from "./Utilities/commandHandler.js"
@@ -27,6 +28,11 @@ commandHandler(client);
 // Event Handler
 import eventHandler from "./Utilities/eventHandler.js";
 eventHandler(client);
+
+
+// Button Handler
+import buttonHandler from "./Utilities/buttonHandler.js";
+buttonHandler(client);
 
 // Logging in to the TOKEN in .env
 client.login(process.env.TOKEN);

@@ -33,10 +33,10 @@ export default async function interactionHandler(client) {
 
         process.stdout.write(`[${chalk.blue("INFO")}] - Successfully Refreshed Slash Command List!\n`);
       } catch (err) {
-        process.stdout.write(`${chalk.red("InteractionHandler")}: ${err}\n`);
+        process.stdout.write(`[${chalk.red("InteractionHandler")}] - ${err}\n`);
       }
     })();
   } catch (err) {
-    process.stdout.write(`${chalk.red("InteractionHandler")}: ${err}\n`)
+    process.stdout.write(`[${chalk.red("InteractionHandler")}] - ${err}\n`)
   }
 }

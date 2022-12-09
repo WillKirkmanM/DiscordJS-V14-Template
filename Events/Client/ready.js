@@ -9,7 +9,7 @@ export default {
   * @param {Client} client
   */
   execute(client) {
-    console.log(`Bot is Ready, Logged in as: ${chalk.greenBright(client.user.tag)}`);
+    console.log(`[${chalk.blue("INFO")}] - Bot is Ready, Logged in as: ${chalk.greenBright(client.user.tag)}`);
 
     // Start the Interaction Handler after Bot is Ready to have Access to all Guild ID's
     interactionHandler(client)
