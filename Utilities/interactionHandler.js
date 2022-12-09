@@ -1,4 +1,5 @@
 import { REST, Routes } from "discord.js";
+import chalk from "chalk";
 import pkg from "glob";
 const { glob } = pkg
 import { promisify } from "node:util";
@@ -21,7 +22,7 @@ export default async function interactionHandler(client) {
 
     (async () => {
       try {
-        process.stdout.write("Refreshing Slash Command List!\n");
+        process.stdout.write(`[${chalk.blue("INFO")}] - Refreshing Slash Command List!\n`);
         const guildIds = await client.guilds.cache.map((guild) => guild.id);
         const clientId = await client.user.id;
         guildIds.forEach(async (guildId) => {
@@ -30,12 +31,12 @@ export default async function interactionHandler(client) {
           });
         });
 
-        process.stdout.write("Successfully Refreshed Slash Command List!\n");
+        process.stdout.write(`[${chalk.blue("INFO")}] - Successfully Refreshed Slash Command List!\n`);
       } catch (err) {
-        process.stdout.write(`InteractionHandler: ${err}\n`);
+        process.stdout.write(`${chalk.red("InteractionHandler")}: ${err}\n`);
       }
     })();
   } catch (err) {
-    process.stdout.write(`InteractionHandler: ${err}\n`)
+    process.stdout.write(`${chalk.red("InteractionHandler")}: ${err}\n`)
   }
 }

@@ -4,7 +4,7 @@ import "dotenv/config";
 import { Client, GatewayIntentBits, Partials, Collection } from "discord.js";
 
 // Setting Intents for Client to add an Intent copy this 'GatewayIntentBits.<Intent> (Your IDE Should auto-complete the intents.)'
-const client = new Client({
+export const client = new Client({
   intents: [
     GatewayIntentBits.Guilds,
     GatewayIntentBits.GuildMessages,

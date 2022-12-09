@@ -1,3 +1,4 @@
+import chalk from "chalk";
 import pkg from "glob";
 const { glob } = pkg;
 import { promisify } from "node:util";
@@ -25,11 +26,11 @@ export default async function eventHandler(client) {
           eventFunction.execute(...args, client)
         );
       } catch (error) {
-        process.stdout.write(`EventHandler: ${error.stack}\n`);
+        process.stdout.write(`${chalk.red("EventHandler")}: ${error.stack}\n`);
       }
     }
   } catch (err) {
-    process.stdout.write(`EventHandler: ${err}\n`)
+    process.stdout.write(`${chalk.red("EventHandler")}: ${err}\n`)
   }
 }
 

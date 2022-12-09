@@ -1,3 +1,4 @@
+import chalk from "chalk";
 import pkg from "glob";
 const { glob } = pkg
 import { promisify } from "node:util";
@@ -22,6 +23,6 @@ export default async function(client) {
     };
   }
   catch (err) {
-    process.stdout.write(`CommandHandler: ${err}\n`);
+    process.stdout.write(`${chalk.red("CommandHandler")}: ${err}\n`);
   };
 };
