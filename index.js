@@ -19,6 +19,7 @@ export const client = new Client({
 client.commands = new Collection();
 client.aliases = new Collection();
 client.interactions = new Collection();
+client.subCommands = new Collection();
 client.buttons = new Collection();
 
 // Command Handler

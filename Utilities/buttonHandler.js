@@ -6,7 +6,7 @@ const proGlob = promisify(glob);
 
 export default async function(client) {
   try {
-    const Files = await proGlob(`${process.cwd().replace(/\\/g, "/")}/Buttons/**/*.js`);
+    const Files = await proGlob(`${process.cwd().replace(/\\/g, "/")}/Interactions/Buttons/**/*.js`);
 
     for (let i = 0; i < Files.length; i++) {
       const buttonFile = await import(Files[i])

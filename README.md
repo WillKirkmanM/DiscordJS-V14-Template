@@ -20,20 +20,18 @@ Clone with [Git-Cli](https://cli.github.com/)
 Use This Template
 ![Use This Template Button](https://camo.githubusercontent.com/523d7e81c3d3dcd01b711f14c87e850edeb8e62bf72814d3231ab084a0c70d31/68747470733a2f2f7777772e726f737472756d2e626c6f672f706f73742f323031392d30362d31312d612d7265706f2d74656d706c6174652d666f722d722d616e616c797369735f66696c65732f7573652d746869732e706e67)
 
-Install Dependencies
-```bash
-    npm install
-```
-
 **Rename .env.example to .env and put your token following:**
 ```bash
     TOKEN=YOUR_TOKEN
-``` 
-
-Run the Bot
-```bash
-    npm run start
 ```
+
+Start Bot (Dependencies Will be Installed Automatically)
+```bash
+  ./start.sh
+```
+
+```
+ 
 ## Get in Contact
 
 You can contact me by sending me a message on Discord (**WIll#7226**) 
