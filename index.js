@@ -1,5 +1,12 @@
 #!/usr/bin/env node
 import "dotenv/config";
+import { DebugLogger } from "@willkm/dl";
+
+export const debug = new DebugLogger({
+  enabled: true,
+  logLevel: 1,
+  prefixMessage: '[DebugLogger] - '
+})
 
 import { Client, GatewayIntentBits, Partials, Collection } from "discord.js";
 

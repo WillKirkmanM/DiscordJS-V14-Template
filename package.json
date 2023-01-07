@@ -7,9 +7,10 @@
   "scripts": {
     "start": "./start.sh"
   },
-  "author": "",
+  "author": "WillKirkmanM",
   "license": "MIT",
   "dependencies": {
+    "@willkm/dl": "^1.0.2",
     "chalk": "^5.2.0",
     "discord-api-types": "^0.37.15",
     "discord.js": "^14.6.0",

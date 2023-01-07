@@ -4,6 +4,7 @@ import pkg from "glob";
 const { glob } = pkg
 import { promisify } from "node:util";
 const proGlob = promisify(glob);
+import { pathToFileURL } from "node:url";
 
 export default async function interactionHandler(client) {
   try {
@@ -15,6 +16,8 @@ export default async function interactionHandler(client) {
     client.interactionsArray = [];
 
     for (let i = 0; i < Files.length; i++) {
+      Files[i] = pathToFileURL(Files[i])
+
       const interactionFile = await import(Files[i]);
       const interaction = interactionFile.default
 

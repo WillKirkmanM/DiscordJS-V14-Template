@@ -3,12 +3,15 @@ import pkg from "glob";
 const { glob } = pkg;
 import { promisify } from "node:util";
 const proGlob = promisify(glob);
+import { pathToFileURL } from "node:url";
 
 export default async function eventHandler(client) {
   try {
     const Files = await proGlob(`${process.cwd().replace(/\\/g, "/")}/Events/**/*.js`);
 
     for (let i = 0; i < Files.length; i++) {
+      Files[i] = pathToFileURL(Files[i])
+
       const eventFile = await import(Files[i]);
       const eventFunction = eventFile.default
 
