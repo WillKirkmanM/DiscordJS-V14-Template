@@ -1,10 +1,7 @@
-#!/bin/bash
-if [ -d "./node_modules/" ]; then
+if (Test-Path -Path "./node_modules") {
   node index.js
-fi
-
-if [ ! -d "./node_modules/"  ]; then
+} else {
   echo "Dependencies Not Found, Installing..."
   npm install
   node index.js
-fi 
+}

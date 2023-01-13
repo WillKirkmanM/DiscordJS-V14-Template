@@ -4,7 +4,7 @@ import "dotenv/config";
 import { Client, GatewayIntentBits, Partials, Collection } from "discord.js";
 
 // Setting Intents for Client to add an Intent copy this 'GatewayIntentBits.<Intent> (Your IDE Should auto-complete the intents.)'
-const client = new Client({
+export const client = new Client({
   intents: [
     GatewayIntentBits.Guilds,
     GatewayIntentBits.GuildMessages,
@@ -15,7 +15,7 @@ const client = new Client({
   ]
 });
 
-// Setting a Global Collection for Commands, Aliases & Interactions
+// Setting a Global Collection for Commands, Aliases, Buttons & Interactions
 client.commands = new Collection();
 client.aliases = new Collection();
 client.interactions = new Collection();
@@ -23,16 +23,13 @@ client.subCommands = new Collection();
 client.buttons = new Collection(); 
 
 // Command Handler
-import commandHandler from "./Utilities/commandHandler.js"
-commandHandler(client);
+import("./Utilities/commandHandler.js")
 
 // Event Handler
-import eventHandler from "./Utilities/eventHandler.js";
-eventHandler(client);
+import("./Utilities/eventHandler.js")
 
 // Button Handler
-import buttonHandler from "./Utilities/buttonHandler.js";
-buttonHandler(client);
+import("./Utilities/buttonHandler.js")
 
 // Logging in to the TOKEN in .env
 client.login(process.env.TOKEN);
