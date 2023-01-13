@@ -5,7 +5,7 @@ import { promisify } from "node:util";
 const proGlob = promisify(glob);
 import { pathToFileURL } from "node:url";
 
-export default async function(client) {
+export default async function buttonhandler(client) {
   try {
     const Files = await proGlob(`${process.cwd().replace(/\\/g, "/")}/Interactions/Buttons/**/*.js`);
 

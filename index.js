@@ -1,12 +1,5 @@
 #!/usr/bin/env node
 import "dotenv/config";
-import { DebugLogger } from "@willkm/dl";
-
-export const debug = new DebugLogger({
-  enabled: true,
-  logLevel: 1,
-  prefixMessage: '[DebugLogger] - '
-})
 
 import { Client, GatewayIntentBits, Partials, Collection } from "discord.js";
 
@@ -27,7 +20,7 @@ client.commands = new Collection();
 client.aliases = new Collection();
 client.interactions = new Collection();
 client.subCommands = new Collection();
-client.buttons = new Collection();
+client.buttons = new Collection(); 
 
 // Command Handler
 import commandHandler from "./Utilities/commandHandler.js"
@@ -36,7 +29,6 @@ commandHandler(client);
 // Event Handler
 import eventHandler from "./Utilities/eventHandler.js";
 eventHandler(client);
-
 
 // Button Handler
 import buttonHandler from "./Utilities/buttonHandler.js";
