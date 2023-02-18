@@ -52,6 +52,7 @@ You can contact me by sending me a message on Discord (**WIll#7226**)
 - Button Handler with Sub-Folders
 - Fully Extensible
 - Easy to Edit **config.js** file
+- Minimal Dependencies
 ## License
 
 [MIT](https://choosealicense.com/licenses/mit/)
