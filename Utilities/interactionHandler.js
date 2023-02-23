@@ -8,8 +8,8 @@ import { pathToFileURL } from "node:url";
 import { client } from "../index.js";
 
 try {
-  await client.interactions.clear()
-  await client.subCommands.clear();
+  client.interactions.clear()
+  client.subCommands.clear();
 
   const Files = await proGlob(`${process.cwd().replace(/\\/g, "/")}/Interactions/Commands/**/*.js`);
 
