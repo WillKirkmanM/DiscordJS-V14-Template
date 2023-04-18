@@ -1,4 +1,4 @@
-# Discord V-14 Template 
+# DiscordJS V14 Template 
 
 A Discord V14 Template with Slash-Commands, Legacy Commands, Sub-Folders & More!
 ## Installation
